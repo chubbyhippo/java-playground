@@ -49,6 +49,11 @@
             <version>4.0.0-M1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>2.5.0</version>
+        </dependency>
     </dependencies>
 
     <build>
