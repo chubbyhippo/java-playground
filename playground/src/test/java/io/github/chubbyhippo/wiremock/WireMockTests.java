@@ -62,8 +62,8 @@ public class WireMockTests {
     }
 
     @Test
+    @DisplayName("test post endpoint")
     void testPostEndpoint() throws Exception {
-        // Arrange
         wireMockServer.stubFor(post(urlEqualTo("/api/users"))
                 .withHeader("Content-Type", equalTo("application/json"))
                 .withRequestBody(containing("Jane"))
@@ -78,7 +78,6 @@ public class WireMockTests {
                                 }
                                 """)));
 
-        // Act
         String requestBody = """
                 {
                   "name": "Jane Smith",
@@ -94,7 +93,6 @@ public class WireMockTests {
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-        // Assert
         assertThat(response.statusCode()).isEqualTo(201);
         assertThat(response.body()).contains("Jane Smith");
         assertThat(response.body()).contains("User created successfully");
