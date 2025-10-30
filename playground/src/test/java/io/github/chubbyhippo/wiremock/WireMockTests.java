@@ -139,7 +139,6 @@ public class WireMockTests {
                                 }
                                 """)));
 
-        // Act
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(wireMockServer.baseUrl() + "/api/users/999"))
                 .GET()
@@ -147,7 +146,6 @@ public class WireMockTests {
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-        // Assert
         assertThat(response.statusCode()).isEqualTo(404);
         assertThat(response.body()).contains("User not found");
     }
