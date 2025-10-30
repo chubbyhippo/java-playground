@@ -102,6 +102,7 @@ public class WireMockTests {
     }
 
     @Test
+    @DisplayName("test query parameters")
     void testQueryParameters() throws Exception {
         // Arrange
         wireMockServer.stubFor(get(urlPathEqualTo("/api/search"))
