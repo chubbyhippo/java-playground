@@ -47,12 +47,12 @@ public class WireMockTests {
                                 }
                                 """)));
 
-        HttpRequest request = HttpRequest.newBuilder()
+        var request = HttpRequest.newBuilder()
                 .uri(URI.create(wireMockServer.baseUrl() + "/api/users/1"))
                 .GET()
                 .build();
 
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         assertThat(response.statusCode()).isEqualTo(200);
         assertThat(response.body()).contains("John Doe");
@@ -78,20 +78,20 @@ public class WireMockTests {
                                 }
                                 """)));
 
-        String requestBody = """
+        var requestBody = """
                 {
                   "name": "Jane Smith",
                   "email": "jane@example.com"
                 }
                 """;
 
-        HttpRequest request = HttpRequest.newBuilder()
+        var request = HttpRequest.newBuilder()
                 .uri(URI.create(wireMockServer.baseUrl() + "/api/users"))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                 .build();
 
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         assertThat(response.statusCode()).isEqualTo(201);
         assertThat(response.body()).contains("Jane Smith");
@@ -116,12 +116,12 @@ public class WireMockTests {
                                 }
                                 """)));
 
-        HttpRequest request = HttpRequest.newBuilder()
+        var request = HttpRequest.newBuilder()
                 .uri(URI.create(wireMockServer.baseUrl() + "/api/search?q=wiremock&limit=10"))
                 .GET()
                 .build();
 
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         assertThat(response.statusCode()).isEqualTo(200);
         assertThat(response.body()).contains("result1");
@@ -139,12 +139,12 @@ public class WireMockTests {
                                 }
                                 """)));
 
-        HttpRequest request = HttpRequest.newBuilder()
+        var request = HttpRequest.newBuilder()
                 .uri(URI.create(wireMockServer.baseUrl() + "/api/users/999"))
                 .GET()
                 .build();
 
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         assertThat(response.statusCode()).isEqualTo(404);
         assertThat(response.body()).contains("User not found");
