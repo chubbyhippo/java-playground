@@ -104,7 +104,6 @@ public class WireMockTests {
     @Test
     @DisplayName("test query parameters")
     void testQueryParameters() throws Exception {
-        // Arrange
         wireMockServer.stubFor(get(urlPathEqualTo("/api/search"))
                 .withQueryParam("q", equalTo("wiremock"))
                 .withQueryParam("limit", equalTo("10"))
@@ -117,7 +116,6 @@ public class WireMockTests {
                                 }
                                 """)));
 
-        // Act
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(wireMockServer.baseUrl() + "/api/search?q=wiremock&limit=10"))
                 .GET()
@@ -125,7 +123,6 @@ public class WireMockTests {
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-        // Assert
         assertThat(response.statusCode()).isEqualTo(200);
         assertThat(response.body()).contains("result1");
     }
