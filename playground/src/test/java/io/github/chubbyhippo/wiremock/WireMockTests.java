@@ -128,8 +128,8 @@ public class WireMockTests {
     }
 
     @Test
+    @DisplayName("test error response")
     void testErrorResponse() throws Exception {
-        // Arrange
         wireMockServer.stubFor(get(urlEqualTo("/api/users/999"))
                 .willReturn(aResponse()
                         .withStatus(404)
