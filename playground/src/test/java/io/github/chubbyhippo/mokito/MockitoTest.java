@@ -3,6 +3,7 @@ package io.github.chubbyhippo.mokito;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedConstruction;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
@@ -24,6 +25,29 @@ public class MockitoTest {
             Assertions.assertThat(exists).isTrue();
 
             filesMock.verify(() -> Files.exists(mockPath));
+        }
+    }
+
+
+    @Test
+    @DisplayName("test mock construction")
+    void testMockConstruction() {
+        try (MockedConstruction<ExampleClass> mocked = Mockito.mockConstruction(ExampleClass.class,
+                (mock, _) -> {
+                    Mockito.when(mock.isTrue()).thenReturn(false);
+                })) {
+
+            ExampleClass example = new ExampleClass();
+            Boolean result = example.isTrue();
+
+            Assertions.assertThat(result).isFalse();
+            Assertions.assertThat(mocked.constructed()).hasSize(1);
+        }
+    }
+
+    private static class ExampleClass {
+        public Boolean isTrue() {
+            return true;
         }
     }
 }
