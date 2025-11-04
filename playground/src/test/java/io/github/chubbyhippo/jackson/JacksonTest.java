@@ -25,7 +25,12 @@ public class JacksonTest {
     @Test
     @DisplayName("test deserialize JSON to object")
     void testDeserializeFromJson() throws JsonProcessingException {
-        String json = "{\"name\":\"Jane\",\"age\":25}";
+        String json = """
+                {
+                  "name": "Jane",
+                  "age": 25
+                }
+                """;
 
         Person person = objectMapper.readValue(json, Person.class);
 
