@@ -9,10 +9,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class PlayTest {
-    @Test
-    @DisplayName("test get hello")
-    void testGetHello() {
-        Play play = new Play();
-        assertThat(play.getHello()).isEqualTo("Hello");
-    }
+  @Test
+  @DisplayName("test get hello")
+  void testGetHello() {
+    Play play = new Play();
+    assertThat(play.getHello()).isEqualTo("Hello");
+  }
 }
