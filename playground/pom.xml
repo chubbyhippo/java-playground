@@ -92,6 +92,7 @@
         <version>${spotless.version}</version>
         <configuration>
           <java>
+            <googleJavaFormat/>
             <formatAnnotations/>
             <removeUnusedImports/>
             <forbidWildcardImports/>
