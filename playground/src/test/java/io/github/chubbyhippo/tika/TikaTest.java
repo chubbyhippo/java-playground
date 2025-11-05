@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 
 public class TikaTest {
   @Test
-  @DisplayName("should return text/plain mime type from fake pdf file")
-  void shouldReturnTextPlainMimeTypeFromFakePdfFile() {
+  @DisplayName("test return text/plain mime type from fake pdf file")
+  void testReturnTextPlainMimeTypeFromFakePdfFile() {
     Tika tika = new Tika();
     try (InputStream is = getClass().getResourceAsStream("/file.pdf")) {
       if (is == null) throw new FileNotFoundException("Resource not found");
