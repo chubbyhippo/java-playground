@@ -90,6 +90,12 @@
             <version>3.5.7</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.code-intelligence</groupId>
+            <artifactId>jazzer-junit</artifactId>
+            <version>0.28.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
