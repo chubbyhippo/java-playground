@@ -95,6 +95,12 @@
       <version>0.28.0</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.approvaltests</groupId>
+      <artifactId>approvaltests</artifactId>
+      <version>26.3.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
