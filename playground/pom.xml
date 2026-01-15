@@ -131,7 +131,6 @@
             <flexmark/>
           </markdown>
         </configuration>
-
         <executions>
           <execution>
             <goals>
@@ -143,5 +142,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
