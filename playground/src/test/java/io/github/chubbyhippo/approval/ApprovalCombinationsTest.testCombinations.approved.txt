@@ -1,0 +1,12 @@
+[A, 1, true] => Result: A, 1, true 
+[A, 1, false] => Result: A, 1, false 
+[A, 2, true] => Result: A, 2, true 
+[A, 2, false] => Result: A, 2, false 
+[A, 3, true] => Result: A, 3, true 
+[A, 3, false] => Result: A, 3, false 
+[B, 1, true] => Result: B, 1, true 
+[B, 1, false] => Result: B, 1, false 
+[B, 2, true] => Result: B, 2, true 
+[B, 2, false] => Result: B, 2, false 
+[B, 3, true] => Result: B, 3, true 
+[B, 3, false] => Result: B, 3, false 
