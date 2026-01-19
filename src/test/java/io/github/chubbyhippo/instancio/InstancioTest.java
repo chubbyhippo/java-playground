@@ -29,12 +29,12 @@ public class InstancioTest {
     User customUser =
         Instancio.of(User.class)
             .set(Select.field(User::name), "Jesus")
-            .generate(Select.field(Address::city), gen -> gen.oneOf("Nazareth", "London"))
+            .generate(Select.field(Address::city), gen -> gen.oneOf("Nazareth", "Galilee"))
             .create();
 
     assertThat(customUser.name()).isEqualTo("Jesus");
     assertThat(customUser.addresses())
         .extracting(Address::city)
-        .allMatch(city -> List.of("Nazareth", "London").contains(city));
+        .allMatch(city -> List.of("Nazareth", "Galilee").contains(city));
   }
 }
