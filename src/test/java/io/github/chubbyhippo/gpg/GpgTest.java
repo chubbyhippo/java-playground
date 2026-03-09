@@ -3,6 +3,7 @@ package io.github.chubbyhippo.gpg;
 import org.bouncycastle.bcpg.ArmoredOutputStream;
 import org.bouncycastle.bcpg.CompressionAlgorithmTags;
 import org.bouncycastle.bcpg.HashAlgorithmTags;
+import org.bouncycastle.bcpg.PublicKeyPacket;
 import org.bouncycastle.bcpg.SymmetricKeyAlgorithmTags;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.openpgp.PGPCompressedData;
@@ -76,7 +77,7 @@ public class GpgTest {
         generator.initialize(2048);
 
         KeyPair keyPair = generator.generateKeyPair();
-        JcaPGPKeyPair pgpKeyPair = new JcaPGPKeyPair(PGPPublicKey.RSA_GENERAL, keyPair, new Date());
+        JcaPGPKeyPair pgpKeyPair = new JcaPGPKeyPair(PublicKeyPacket.VERSION_4, PGPPublicKey.RSA_GENERAL, keyPair, new Date());
 
         PGPDigestCalculator sha1 =
                 new JcaPGPDigestCalculatorProviderBuilder().build().get(HashAlgorithmTags.SHA1);
