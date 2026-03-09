@@ -60,7 +60,7 @@ public class GpgTest {
         char[] passphrase = "test-passphrase".toCharArray();
         String original = "hello gpg";
 
-        PGPSecretKeyRing secretKeyRing = generateSecretKeyRing("test@example.com", passphrase);
+        PGPSecretKeyRing secretKeyRing = generateSecretKeyRing(passphrase);
         PGPPublicKey publicKey = findEncryptionKey(secretKeyRing);
         PGPSecretKey secretKey = findSecretKey(secretKeyRing);
 
@@ -70,7 +70,7 @@ public class GpgTest {
         assertThat(new String(decrypted, StandardCharsets.UTF_8)).isEqualTo(original);
     }
 
-    private static PGPSecretKeyRing generateSecretKeyRing(String identity, char[] passphrase)
+    private static PGPSecretKeyRing generateSecretKeyRing(char[] passphrase)
             throws Exception {
         KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA", "BC");
         generator.initialize(2048);
@@ -85,7 +85,7 @@ public class GpgTest {
                 new PGPKeyRingGenerator(
                         PGPSignature.POSITIVE_CERTIFICATION,
                         pgpKeyPair,
-                        identity,
+                        "test@example.com",
                         sha1,
                         null,
                         null,
